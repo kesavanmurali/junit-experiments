@@ -49,6 +49,23 @@
     Please note that, until Junit4, these methods were named as @Before/@BeforeClass and @After/@AfterClass.
     In Junit5, the names of these annotations were refactored to clear the ambiguity.
 
+## Step-3 : Parameterized Testing
+
+    There may be cases where the method under testing may be same, but the arguments can differ.
+    Instead of creating test methods individually for different parameters, a single method itself can be used
+    for different parameters. 
+    
+### Setup for parameterized Test
+
+    @ParameterizedTest - Replace @Test with this annotation.
+    Define the value source and ensure the test method accepts those parameters.
+        - @ValueSource
+        - @EnumSource
+        - @MethodSource
+        - @CsvSource
+
+    
+
 ## Best Practices
     
     A test case should hold a single aspect to test.  Multiple aspects can be split in more than one testcases. 
