@@ -9,19 +9,19 @@
         To annotate a method to represents a JUnit unit test case.
         Should not be private or static.  Generally, don't accept any parameters.
 
-    @Before
-        A dedicated setup method in a test class will be annoted with @Before.
+    @BeforeEach
+        A dedicated setup method in a test class will be annoted with @BeforeEach.
         This is expected to perform all the initialization before a test case runs.
 
-    @After
-        Just like @Before, a teardown method will annoted with @After.
+    @AfterEach
+        Just like @Before, a teardown method will annoted with @AfterEach.
         To clean up after a test case runs.
 
     @SpringBootTest
         To annotate a test class - will hold one or more Junit test cases.
         Ensures the spring related configuration and cotainers are initialized and ready to be tested/mocked with.
     
-    @BeforeClass/@AfterClass
+    @BeforeAll/@AfterAll
         Methods annotated with this annotation will be run once when the test class is loaded/unloaded respectively.
 
 ### Assert Functions
@@ -36,6 +36,18 @@
     assertFalse
     assertThrows
     assertDoesNotThrow
+
+## Step-2 : Setup and cleanup
+    
+    In a Junit test class, you may have more than one test cases.  But, each test case may need some
+    common initializations of variables.  Those common initialization and cleanup(after test case) can
+    be introduced using @BeforeEach and @AfterEach annotations.
+
+    At one more level higher initialzations(Once per test class), @BeforeAll/@AfterAll annotations can 
+    be used.  
+
+    Please note that, until Junit4, these methods were named as @Before/@BeforeClass and @After/@AfterClass.
+    In Junit5, the names of these annotations were refactored to clear the ambiguity.
 
 ## Best Practices
     
