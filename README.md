@@ -37,6 +37,8 @@
     assertThrows
     assertDoesNotThrow
 
+    Example : MagicNumberBoxTest.java
+
 ## Step-2 : Setup and cleanup
     
     In a Junit test class, you may have more than one test cases.  But, each test case may need some
@@ -48,6 +50,8 @@
 
     Please note that, until Junit4, these methods were named as @Before/@BeforeClass and @After/@AfterClass.
     In Junit5, the names of these annotations were refactored to clear the ambiguity.
+    
+    Example : BeforeAndAfterSampleTest.java
 
 ## Step-3 : Parameterized Testing
 
@@ -64,7 +68,31 @@
         - @MethodSource
         - @CsvSource
 
+    Example : MagicNumberBoxParameterizedTest.java
+
+## Step-4 : Stubbing Basics
     
+    SUT - System Under Test
+        In case of Junit tescases, a class that you want to test is SUT.
+
+    Why Stubbing is needed?
+        A SUT might be dependent on other utility classes.  This dependencies may include
+        heavy/costly operations like network calls, database access, etc., 
+        Sometimes a dependency may be external and may not be available in
+        the build environment to test it.
+        These dependents more often than not is an another class in java.  So, these classes
+        are expected to be stubbed while testing SUT with Junit.
+
+    Problems with Stubbing
+        Effort Overhead
+            - There could be more than one dependent.
+            - For each dependent, the stub needs to implemented, which is timetaking.
+        Highly complex for complex dependents
+            - Stubs can get as complex as the dependencies and requires high maintenance time.
+
+    Example : TodoBusinessImplStubTest.java
+
+    Alternative to Stubbing: Mocking!!!
 
 ## Best Practices
     
