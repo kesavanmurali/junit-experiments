@@ -94,6 +94,50 @@
 
     Alternative to Stubbing: Mocking!!!
 
+## Step-5 : Mocking Basics
+
+    What is mocking?
+        Creating a mock object of a dependent class to ensure the SUT class is isolated and tested.
+        Mocking the objects happens dynamically at run-time.
+
+    Stubbing Vs Mocking
+        Mocking is more dynamic coding.
+        Stubbing is a subset of mocking. With mocking frameworks, we can do much more.
+        Can verify if a particular method of a class has been called - How many times it was called - With what parameters it was called. 
+
+### Mockito basics
+
+    Mocking a dependency
+        <DependentClass> mockObject = mock(<DependentClass>.class);   
+        Usually this is they way to create a mock object of a class.  
+
+    Stubbing a dependency
+        Generally to stub a method of mock object, the following syntax may be followed.
+        when(mockObject.<callingFunction>(<Matcher1>, <Matcher2>)).thenReturn(<ReturnValue>) - where Matchers indicate the parameter type
+
+    Example : TodoBusinessImplMockTest.java
+
+    Fundamentals things
+        Nice mock
+            If a method is not stubbed, mockito returns a default value depending on the return type.
+            For example, if the return type is list, returns an empty list. 0 for integer, false for boolean.
+        Verify Interactions
+            verify method can be used understand how a method in the mock object were involved in the execution.
+        Argument Matchers
+            Parameters can be of any value.  Sometimes, the values can be hardcoded.
+            But, generally, it is desired to stub a method generically, argument matchers can be used for this purpose.
+                - anyInt()
+                - anyString()
+                - anyLong()
+        Argument Captors
+            What arguments are being passed to a mock object can be verified by attaching an ArgumentCaptor to the mock.
+        Useful stub methods of mock objects
+            thenReturn - Return a specific value
+            thenThrow - On calling the stubbed method, throw a specified exception.
+
+    Example : MockitoFundamentals.java
+    
+
 ## Best Practices
     
     A test case should hold a single aspect to test.  Multiple aspects can be split in more than one testcases. 
