@@ -136,6 +136,25 @@
             thenThrow - On calling the stubbed method, throw a specified exception.
 
     Example : MockitoFundamentals.java
+
+## Step-6 : Mockito Annotations
+
+    The following annotations helps minimize the initialization steps that sets up the mocking objects.
+    No need to create the objects and preserve, as they will initialized automatically in most cases with the help of annotations.
+    
+    @Mock 
+        Whichever dependent class or member variable is to be mocked, declare a private field in the Junit class annotated with @Mock.
+        Mockito looks for the corresponding member variable in the SUT and assigns a mock object to it.
+    @InjectMocks
+        To define the SUT class as a member variable in the Junit test class.
+        It allows the mock to be injected into this testable object.
+    @ExtendWith(MockitoExtension.class)
+        Runs Junit tests with mockito test runner.
+        Another alternative is to use SpringExtension.class, in case the spring features are needed for the run.
+    @Captor
+        To declare an argument captor member field, that will be initialized automatically for each test case.
+
+    Example : TodoBusinessImplMockAnnotationsTest.java
     
 
 ## Best Practices
